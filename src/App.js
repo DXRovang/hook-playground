@@ -1,5 +1,5 @@
 import './App.css';
-
+import {useState} from 'react'
 function App() {
 
   const namesArray = ["John", "Amy", "Ted", "Jane", "Mark", "Sue"]
@@ -13,8 +13,11 @@ function App() {
     5: "grape"
   }
 
+  const [toggle, setToggle] = useState(true)
   
-
+  const toggleFunction = () =>{
+    setToggle(!toggle)
+  }
 
   return (
     <>
@@ -26,9 +29,9 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Color Change</div>
+      <div className={toggle ? "pink": "blue"}>What color am I?</div>
+      <button onClick={toggleFunction}>Change Color</button>
     </div>
 
     <div className="border">
