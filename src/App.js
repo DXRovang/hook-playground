@@ -26,7 +26,7 @@ function App() {
     e.preventDefault()
   }
   const handleArrayChange = e =>{
-    debugger
+    // debugger
     setArrayState([...arrayState, e.target.value])
   }
 
@@ -87,7 +87,7 @@ function App() {
     <div className="border">
       <div className="title">Form with Array</div>
       {/* {arrayState} */}
-      <form onClick={handleArraySubmit}>
+      <form onSubmit={handleArraySubmit}>
           <input onChange={handleArrayChange}
             type="text"
             name="name"
@@ -99,8 +99,8 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
+      <div className="title">Filter/Includes</div>
+      <div>{namesArray.filter(name=>name.includes("e")).map(n=><div>{n}</div>)}</div>
       <button>Click</button>
     </div>
 
