@@ -45,14 +45,14 @@ function App() {
   }
 
   const ArrayFilter = () =>{
-    setArrayState(namesArray.filter(name=>name.includes("e")).map(n=><div>{n}</div>))
+    setArrayState(arrayState.filter(name=>name.includes("e")).map(n=><div>{n}</div>))
   }
 
   const add = () =>{
     setArrayState([...arrayState, "Ariel"])
   }
   const subtract = () =>{
-    console.log("subtract")
+    // console.log("subtract")
     setArrayState((namesArray) =>namesArray.filter((_,index)=>index !== (namesArray.length - 1)))
   }
 
