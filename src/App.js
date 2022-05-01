@@ -19,6 +19,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [state, setState] = useState({name: ""})
   const [arrayState, setArrayState] = useState(namesArray)
+  const [numState, setNumState] = useState(numbersArray)
 
   const handleChange = (e) =>{
     setState({...state, [e.target.name]: e.target.value})
@@ -59,6 +60,12 @@ function App() {
     // console.log("subtract")
     setArrayState((namesArray) =>namesArray.filter((_,index)=>index !== (namesArray.length - 1)))
   }
+
+  const sortNumbers = ()=>{
+    setNumState(numbersArray.sort((a,b)=> a - b ).map(n=><div>{n}</div>)) 
+  }
+  const sortWords = ()=>{
+    setArrayState(namesArray.sort().map(n=><div>{n}</div>))  }
 
   return (
     <>
@@ -134,15 +141,15 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Number Sort</div>
+      <div>{numState.sort().map(n=><div>{n}</div>)}</div>
+      <button onClick={sortNumbers}>Sort</button>
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Word Sort</div>
+      <div>{arrayState.map(n=><div>{n}</div>)}</div>
+      <button onClick={sortWords}>Sort</button>
     </div>
     </>
 
