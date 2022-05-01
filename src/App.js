@@ -27,7 +27,7 @@ function App() {
   }
   const handleArrayChange = e =>{
     // debugger
-    setArrayState([...arrayState, e.target.value])
+    setArrayState(()=>[...arrayState, e.target.value])
   }
 
   const handleArraySubmit = (e) =>{
@@ -42,6 +42,10 @@ function App() {
   }
   const decrement = ()=>{
     setCount(count=>count - 1)
+  }
+
+  const ArrayFilter = () =>{
+    setArrayState(namesArray.filter(name=>name.includes("e")).map(n=><div>{n}</div>))
   }
 
   return (
@@ -100,8 +104,9 @@ function App() {
 
     <div className="border">
       <div className="title">Filter/Includes</div>
-      <div>{namesArray.filter(name=>name.includes("e")).map(n=><div>{n}</div>)}</div>
-      <button>Click</button>
+
+      <div>{arrayState.map(n=><div>{n}</div>)}</div>
+      <button onClick={ArrayFilter}>Filter</button>
     </div>
 
     <div className="border">
