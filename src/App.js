@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react'
+// import UserForm from './UserForm'
 function App() {
 
   const namesArray = ["John", "Amy", "Ted", "Jane", "Mark", "Sue"]
@@ -15,7 +16,23 @@ function App() {
 
   const [toggle, setToggle] = useState(true)
   const [count, setCount] = useState(0)
+  const [state, setState] = useState({name: ""})
+  const [arrayState, setArrayState] = useState(namesArray)
 
+  const handleChange = (e) =>{
+    setState({...state, [e.target.name]: e.target.value})
+  }
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+  }
+  const handleArrayChange = e =>{
+    debugger
+    setArrayState([...arrayState, e.target.value])
+  }
+
+  const handleArraySubmit = (e) =>{
+    e.preventDefault()
+  }
 
   const toggleFunction = () =>{
     setToggle(!toggle)
@@ -50,22 +67,35 @@ function App() {
 
     </div>
 
+
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Form with Object</div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input onChange={handleChange}
+            type="text"
+            name="name"
+            placeholder="write"
+            value={state.name}
+          />
+          <button>submit</button>
+        </form>
+      </div>
+      
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
-    </div>
-
-    <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Form with Array</div>
+      {/* {arrayState} */}
+      <form onClick={handleArraySubmit}>
+          <input onChange={handleArrayChange}
+            type="text"
+            name="name"
+            placeholder="write"
+            value=""
+          />
+          <button>submit</button>
+        </form>
     </div>
 
     <div className="border">
