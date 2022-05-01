@@ -14,9 +14,17 @@ function App() {
   }
 
   const [toggle, setToggle] = useState(true)
-  
+  const [count, setCount] = useState(0)
+
+
   const toggleFunction = () =>{
     setToggle(!toggle)
+  }
+  const increment = ()=>{
+    setCount(count=>count + 1)
+  }
+  const decrement = ()=>{
+    setCount(count=>count - 1)
   }
 
   return (
@@ -35,9 +43,11 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Counter</div>
+      <div>{count}</div>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+
     </div>
 
     <div className="border">
