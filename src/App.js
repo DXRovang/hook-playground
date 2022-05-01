@@ -48,6 +48,14 @@ function App() {
     setArrayState(namesArray.filter(name=>name.includes("e")).map(n=><div>{n}</div>))
   }
 
+  const add = () =>{
+    setArrayState([...arrayState, "Ariel"])
+  }
+  const subtract = () =>{
+    console.log("subtract")
+    setArrayState((namesArray) =>namesArray.filter((_,index)=>index !== (namesArray.length - 1)))
+  }
+
   return (
     <>
     <div className="border">
@@ -110,9 +118,9 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Title</div>
-      <div>Body</div>
-      <button>Click</button>
+      <div className="title">Add/Delete</div>
+      <div>{arrayState.map(n=><div>{n}</div>)}</div>
+      <button onClick={add}>+</button><button onClick={subtract}>-</button>
     </div>
 
     <div className="border">
