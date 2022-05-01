@@ -15,6 +15,7 @@ function App() {
   }
 
   const [toggle, setToggle] = useState(true)
+  const [toggleSize, setToggleSize] = useState(true)
   const [count, setCount] = useState(0)
   const [state, setState] = useState({name: ""})
   const [arrayState, setArrayState] = useState(namesArray)
@@ -36,6 +37,9 @@ function App() {
 
   const toggleFunction = () =>{
     setToggle(!toggle)
+  }
+  const toggleSizeFunction = () =>{
+    setToggleSize(!toggleSize)
   }
   const increment = ()=>{
     setCount(count=>count + 1)
@@ -69,6 +73,12 @@ function App() {
       <div className="title">Color Change</div>
       <div className={toggle ? "pink": "blue"}>What color am I?</div>
       <button onClick={toggleFunction}>Change Color</button>
+    </div>
+
+    <div className="border">
+      <div className="title">Font Change</div>
+      <div className={toggleSize ? "large": "small"}>How big am I?</div>
+      <button onClick={toggleSizeFunction}>Change Font Size</button>
     </div>
 
     <div className="border">

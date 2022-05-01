@@ -13,3 +13,9 @@
 .blue{
   background-color: aqua;
 }
+.large{
+  font-size: xx-large;
+}
+.small{
+  font-size: xx-small;
+}
