@@ -2,7 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Child from './Child'
 // import UserForm from './UserForm'
-function App(props) {
+function App() {
 
   const namesArray = ["John", "Amy", "Ted", "Jane", "Mark", "Sue"]
   const numbersArray = [3, 1, 6, 44, 89, 101, 2, 897]
@@ -71,11 +71,15 @@ function App(props) {
 
     useEffect(()=>{
       setCount(count => count)
-    }, [props.count])
+      setState(state => state)
+      setArrayState(arrayState => arrayState)
+    },[])
 
   return (
     <>
-    {count && <Child count={count}/>}
+    {/* {count ? <Child count={count} state={state}/>: null} */}
+   <Child count={count} state={state} arrayState={arrayState}/>
+
     <div className="border">
       <div className="title">My Constants</div>
       <div>Names: {namesArray.map(name=>name + " - ")}</div>
