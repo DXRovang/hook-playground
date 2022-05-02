@@ -12,7 +12,8 @@ function App() {
     "second": "pear", 
     "third": "banana", 
     "fourth": "apple",
-    "fifth": "grape"
+    "fifth": "grape",
+    "sixth": "pear"
   }
 
   const [toggle, setToggle] = useState(true)
@@ -175,6 +176,22 @@ function App() {
       ))}</div>
     </div>
     {console.log(Object.entries(myObject))}
+
+    <div className="border">
+      <div className="title">Object.values</div>
+      <div>{Object.values(myObject).map(o=><div>{o}</div>)}</div>
+    </div>
+
+    <div className="border">
+      <div className="title">Object.keys</div>
+      <div>{Object.keys(myObject).map(o=><div>{o}</div>)}</div>
+    </div>
+
+    <div className="border">
+      <div className="title">Filter values (delete "pear")</div>
+      <div>{Object.values(myObject).filter(ob => ob !== "pear").map(o=><div>{o}</div>)}</div>
+    </div>
+
     </>
 
   )
