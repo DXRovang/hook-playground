@@ -1,7 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import Child from './Child'
-// import UserForm from './UserForm'
 function App() {
 
   const namesArray = ["John", "Amy", "Ted", "Jane", "Mark", "Sue"]
@@ -128,7 +127,6 @@ function App() {
 
     <div className="border">
       <div className="title">Form with Array</div>
-      {/* {arrayState} */}
       <form onSubmit={handleArraySubmit}>
           <input onChange={handleArrayChange}
             type="text"
