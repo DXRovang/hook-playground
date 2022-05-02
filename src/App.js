@@ -1,7 +1,8 @@
 import './App.css';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import Child from './Child'
 // import UserForm from './UserForm'
-function App() {
+function App(props) {
 
   const namesArray = ["John", "Amy", "Ted", "Jane", "Mark", "Sue"]
   const numbersArray = [3, 1, 6, 44, 89, 101, 2, 897]
@@ -67,8 +68,14 @@ function App() {
   const sortWords = ()=>{
     setArrayState(namesArray.sort().map(n=><div>{n}</div>))  }
 
+
+    useEffect(()=>{
+      setCount(count => count)
+    }, [props.count])
+
   return (
     <>
+    {count && <Child count={count}/>}
     <div className="border">
       <div className="title">My Constants</div>
       <div>Names: {namesArray.map(name=>name + " - ")}</div>
