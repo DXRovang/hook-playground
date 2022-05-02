@@ -8,11 +8,11 @@ function App() {
   const numbersArray = [3, 1, 6, 44, 89, 101, 2, 897]
 
   const myObject = {
-    1: "orange", 
-    2: "pear", 
-    3: "banana", 
-    4: "apple",
-    5: "grape"
+    "first": "orange", 
+    "second": "pear", 
+    "third": "banana", 
+    "fourth": "apple",
+    "fifth": "grape"
   }
 
   const [toggle, setToggle] = useState(true)
@@ -162,6 +162,18 @@ function App() {
       <div>{arrayState.map(n=><div>{n}</div>)}</div>
       <button onClick={sortWords}>Sort</button>
     </div>
+
+    <div className="border">
+      <div className="title">Object.entries(key, value, i)</div>
+      <div>{Object.entries(myObject).map(([key, value], i)=>(
+        <>
+        <div>index = {i}</div>
+        <div key={i}>key = {key}, 
+        value = {value} </div>
+        </>
+      ))}</div>
+    </div>
+    {console.log(Object.entries(myObject))}
     </>
 
   )
