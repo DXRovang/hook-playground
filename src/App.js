@@ -73,12 +73,13 @@ function App() {
       setCount(count => count)
       setState(state => state)
       setArrayState(arrayState => arrayState)
+      setToggle(toggle=>toggle)
     },[])
 
   return (
     <>
     {/* {count ? <Child count={count} state={state}/>: null} */}
-   <Child count={count} state={state} arrayState={arrayState}/>
+   <Child count={count} state={state} arrayState={arrayState} toggleFunction={toggleFunction} toggle={toggle}/>
 
     <div className="border">
       <div className="title">My Constants</div>
