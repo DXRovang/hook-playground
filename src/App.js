@@ -65,6 +65,19 @@ function App() {
   const sortNumbers = ()=>{
     setNumState(numbersArray.sort((a,b)=> a - b ).map(n=><div>{n}</div>)) 
   }
+
+  const eachNum = () =>{
+    const newNum = []
+    numbersArray.sort((a,b)=>a-b).forEach(num =>
+      newNum.push(num + 1)
+      )
+    setNumState(newNum)
+  }
+
+  const sliceSplice = ()=>{
+    setNumState(numState=>[...numState.slice(0,4), 666, ...numState.splice(4)])
+  }
+
   const sortWords = ()=>{
     setArrayState(namesArray.sort().map(n=><div>{n}</div>))  }
 
@@ -85,7 +98,8 @@ function App() {
       <div className="title">My Constants</div>
       <div>Names: {namesArray.map(name=>name + " - ")}</div>
       <div>Numbers: {numbersArray.map(number=> number + " - ")}</div>
-      <div>Object: {Object.keys(myObject).map((item, index)=>index + ". " + myObject[item] + " ")}</div>
+      <div>Numbers: {numbersArray.map(number=> (number + 1) + " - ")}</div>
+      <div>Object: {Object.keys(myObject).map((key, index)=>index + ". " + myObject[key] + " ")}</div>
     </div>
 
     <div className="border">
@@ -164,7 +178,7 @@ function App() {
     </div>
 
     <div className="border">
-      <div className="title">Object.entries(key, value, i)</div>
+      <div className="title">Object.entries([key, value], i)</div>
       <div>{Object.entries(myObject).map(([key, value], i)=>(
         <>
         <div>index = {i}</div>
@@ -177,12 +191,12 @@ function App() {
 
     <div className="border">
       <div className="title">Object.values</div>
-      <div>{Object.values(myObject).map(o=><div>{o}</div>)}</div>
+      <div>{Object.values(myObject).map((value, index)=><div>{value}, index: {index}</div>)}</div>
     </div>
 
     <div className="border">
       <div className="title">Object.keys</div>
-      <div>{Object.keys(myObject).map(o=><div>{o}</div>)}</div>
+      <div>{Object.keys(myObject).map((key, index)=><div>{key}, index: {index}</div>)}</div>
     </div>
 
     <div className="border">
@@ -190,6 +204,26 @@ function App() {
       <div>{Object.values(myObject).filter(ob => ob !== "pear").map(o=><div>{o}</div>)}</div>
     </div>
 
+    <div className="border">
+      <div className="title">forEach</div>
+      <div>{numState.sort((a,b)=>a-b).map(n=><div>{n}</div>)}</div>
+      <button onClick={eachNum}>add 1</button>
+    </div>
+
+    <div className="border">
+      <div className="title">Slice</div>
+      <div>{numbersArray}</div>
+      <div>{numbersArray.slice(1,3)}</div>
+      {/* <div>{numbersArray.splice(1,3)}</div> */}
+    </div>
+
+    <div className="border">
+      <div className="title">Slice</div>
+      <div>{numbersArray}</div>
+      <div>{numState}</div>
+      <button onClick={sliceSplice}>good luck</button>
+
+    </div>
     </>
 
   )
